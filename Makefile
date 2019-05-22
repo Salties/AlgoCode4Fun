@@ -1,0 +1,3 @@
+PROJECT=lps
+
+${PROJECT}: ${PROJECT}.c
