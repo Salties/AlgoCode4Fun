@@ -29,8 +29,8 @@ char* longestParlindromicString(char *s)
     char *ret;
     char *sMan;
     int sLen,sManLen;
-    int lpsIdx, lpsManIdx;
-    int lpsLen, lpsManLen, lpsManIdxLen;
+    int lpsManIdx;
+    int lpsManLen, lpsManIdxLen;
     int retLen;
 
     //Compute the length of s.
@@ -59,17 +59,10 @@ char* longestParlindromicString(char *s)
             lpsManLen = lpsManIdxLen;
         }
     }
-    
-    //Conver index in Man's form back into normal form.
-    lpsIdx = (lpsManLen - 1) / 2;
-    lpsLen = lpsManLen;
 
     //Compute length of LPS.
-    for(retLen = 0, i = lpsManIdx - lpsManLen; i < lpsManIdx + lpsManLen; i++)
-    {
-        if(sMan[i] != DNM)
-            retLen++;
-    }
+    retLen = lpsManLen;
+
 
     //Copy LPS from Mancherer's form.
     ret = malloc(retLen);
@@ -90,7 +83,6 @@ char* longestParlindromicString(char *s)
 
 int main(int argc, char *argv[])
 {
-    char S[] = "abacaba";
     printf("%s\n", longestParlindromicString(argv[1]));
     return 0;
 }
